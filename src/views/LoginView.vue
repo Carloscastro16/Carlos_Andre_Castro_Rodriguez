@@ -33,7 +33,7 @@ import { RouterLink } from 'vue-router'
     <button class="button-submit">Login</button>
     <p>
         ¿Aun no tienes una cuenta? 
-        <span>
+        <span class="register">
             <RouterLink class="item" to="/register" name="register">
                 Registrate
             </RouterLink>
@@ -162,5 +162,8 @@ p {
 }
 .rememberMe input{
     margin-right: 1rem;
+}
+.register .item{
+  color: #151717;
 }
 </style>
