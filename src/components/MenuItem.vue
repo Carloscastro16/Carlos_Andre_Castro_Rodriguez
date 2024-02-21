@@ -1,7 +1,7 @@
 <script setup lang="ts">
     import { RouterLink } from 'vue-router';
     import type { IMenuItem } from '@/interfaces/IMenuItems';
-    defineProps<{data: IMenuItem, index: number}>()
+    defineProps<{data: IMenuItem}>()
 </script>
 
 <template>
@@ -13,7 +13,7 @@
         height: 100%;
         padding-top: 1rem;
         padding-bottom: 1rem;
-        font-size: 1.2rem;
+        font-size: 1rem;
         
     }
 </style>

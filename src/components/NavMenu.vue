@@ -12,7 +12,7 @@
 
 <template>
     <nav>
-        <MenuItem class="nav-item" v-for="(items, index) in links" :data="items" :index="index" :key="index"></MenuItem>
+        <MenuItem class="nav-item" v-for="items in links" :data="items" :name="items.name" :path="items.path" :key="items.name"></MenuItem>
     </nav>
 </template>
 
