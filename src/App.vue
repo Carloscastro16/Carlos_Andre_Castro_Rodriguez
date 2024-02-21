@@ -18,13 +18,13 @@ import NavMenu from './components/menu/NavMenu.vue';
   </main>
 </template>
 
-<style scoped>
+<style >
 h1{
   margin-bottom: 8rem;
 }
 main{
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
