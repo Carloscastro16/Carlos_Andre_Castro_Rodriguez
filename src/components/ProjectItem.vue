@@ -12,7 +12,7 @@
 </script>
 
 <template>
-  <div class="item-card">
+  <div class="item-card" v-if="!props.completed">
     <div class="id">
         {{ props.id }}
         <div class="delete-btn">

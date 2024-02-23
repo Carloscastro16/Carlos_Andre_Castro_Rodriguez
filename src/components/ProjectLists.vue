@@ -64,8 +64,8 @@ function updateStatus(value: any, id: any) {
           <slot name="header"></slot>
       </h1>
       <div style="padding: 8px 8px;">
-        <p v-if="!!totalProjects">{{ ProjectsCompleted }} / {{ totalProjects }} Proyectos completadas</p>
-        <p v-else>No tienes ninguna tarea</p>
+        <p v-if="!!totalProjects">{{ ProjectsCompleted }} / {{ totalProjects }} Proyectos completados</p>
+        <p v-else>No tienes ningun Proyecto agregado</p>
       </div>
       <div class="cards-container">
         <ProjectItem @update-status="updateStatus" v-for="(comment, index) in reactiveData" v-bind="comment" :key="index">
