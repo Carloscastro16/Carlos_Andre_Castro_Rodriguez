@@ -1,11 +1,22 @@
 <script setup lang="ts">
-import { ref, reactive, computed, watch } from 'vue'
+import { ref, computed } from 'vue'
 import ProjectItem from './ProjectItem.vue';
 import { ProjectsData } from '@/stores/items';
 const reactiveData = ref(ProjectsData);
 const titulo = ref('');
 const prioridad = ref('');
-const id = ref('');
+const id = ref(0);
+
+const ProjectsCompleted = computed(() => {
+  let countProjectsCompleted = 0
+  for(let project of reactiveData.value) {
+    if(project.completed) countProjectsCompleted++
+  }
+  return countProjectsCompleted
+}) 
+const totalProjects = computed(() => {
+  return reactiveData.value.length
+})
 
 function Create() {
   let newObject = {
@@ -18,11 +29,14 @@ function Create() {
   console.log(reactiveData.value);
 }
 
-function Update() {
+function updateStatus(value: any, id: any) {
+  const index = reactiveData.value.findIndex((task) => task.id === id)
+  if(index !== -1){
+    reactiveData.value[index].completed = value
+  }
 }
 
-function Del() {
-}
+
 
 </script>
 
@@ -49,8 +63,12 @@ function Del() {
       <h1>
           <slot name="header"></slot>
       </h1>
+      <div style="padding: 8px 8px;">
+        <p v-if="!!totalProjects">{{ ProjectsCompleted }} / {{ totalProjects }} Proyectos completadas</p>
+        <p v-else>No tienes ninguna tarea</p>
+      </div>
       <div class="cards-container">
-        <ProjectItem v-for="(comment, index) in reactiveData" v-bind="comment" :key="index">
+        <ProjectItem @update-status="updateStatus" v-for="(comment, index) in reactiveData" v-bind="comment" :key="index">
         </ProjectItem>
       </div>
     </div>
